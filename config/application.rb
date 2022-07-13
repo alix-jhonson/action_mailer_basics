@@ -8,6 +8,14 @@ Bundler.require(*Rails.groups)
 
 module ActionMailerBasics
   class Application < Rails::Application
+    config.action_mailer.default_url_options = { host: 'example.com' }
+    <%= link_to 'welcome', welcome_path %>
+    <%= link_to 'welcome', welcome_url %>
+   <%= url_for(controller: 'welcome',
+            action: 'greeting',
+            only_path: false) %>
+  <%= user_url(@user, host: 'example.com') %>
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
