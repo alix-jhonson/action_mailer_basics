@@ -10,4 +10,10 @@ class UserMailer < ApplicationMailer
   def welcome
   attachments.inline['image.jpg'] = File.read('/path/to/image.jpg')
 end
+  def welcome_email(user)
+  @user = user
+  email_with_name = %("#{@user.name}" <#{@user.email}>)
+  mail(to: email_with_name, subject: 'Welcome to My Awesome Site')
+end
+
 end
